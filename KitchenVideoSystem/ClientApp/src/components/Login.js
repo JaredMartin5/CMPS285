@@ -46,7 +46,7 @@ class Login extends Component {
             sessionStorage.setItem("token", response.data.token)
             this.getUserInfo(user_id);
         }).catch((error) => {
-            if (error.response.status == 401 || error.response.status == 400) {
+            if (error.response.status === 401 || error.response.status === 400) {
                 this.setState({
                     loginFail: true
                 });
@@ -88,7 +88,7 @@ class Login extends Component {
             <div className="Login">
                 <div className="LoginContainer">
                     <form onSubmit={this.login} className="form-signin">
-                        <img src={KvsIcon} height="80px" class="center" />
+                      <img src={KvsIcon} alt="KVS Icon" height="80px" className="center" />
                         <h1 className="signIn">Please Login to KVS </h1>
                         <div className="row">
                             <div className="col">

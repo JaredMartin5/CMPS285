@@ -1,11 +1,9 @@
 ﻿import React, { Component } from 'react';
 import "./AddUser.css";
-import { Redirect, Link } from "react-router-dom";
 import axios from 'axios'
 import CheckBox from './CheckBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons'
-import Clock from 'react-digital-clock'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -74,27 +72,27 @@ export default class AddUser extends Component {
         let user_firstname = null;
         let user_lastname = null;
 
-        if (this.state.loginParams.user_id == "") {
+        if (this.state.loginParams.user_id === "") {
             user_id = null;
         } else {
             user_id = this.state.loginParams.user_id
         }
 
-        if (this.state.loginParams.user_password == "") {
+        if (this.state.loginParams.user_password === "") {
             user_password = null;
         }
         else {
             user_password = this.state.loginParams.user_password
         }
 
-        if (this.state.loginParams.user_firstname == "") {
+        if (this.state.loginParams.user_firstname === "") {
             user_firstname = null;
         }
         else {
             user_firstname = this.state.loginParams.user_firstname
         }
 
-        if (this.state.loginParams.user_lastname == "") {
+        if (this.state.loginParams.user_lastname === "") {
             user_lastname = null;
         }
         else {
@@ -129,13 +127,13 @@ export default class AddUser extends Component {
             console.log("DATA");
             console.log(response.data);
             console.log(this.state.userFail);
-            if (response.data == 1) {
+            if (response.data === 1) {
                 this.setState({
                     userFail: false
                 });
                 this.notify()
             }
-            if (response.data == -1) {
+            if (response.data === -1) {
                 this.setState({
                     SameUser: true
                 });

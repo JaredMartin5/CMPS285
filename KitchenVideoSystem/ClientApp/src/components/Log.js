@@ -1,7 +1,7 @@
 ﻿import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios'
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons'
 import './Log.css'
@@ -78,7 +78,7 @@ class Log extends Component {
     CountSame(itemName, itemSize, orderNumber) {
         var number = 0;
         this.state.LogData.forEach((Order) => {
-            if (Order.name == itemName && Order.size == itemSize && Order.orderNumber == orderNumber)
+            if (Order.name === itemName && Order.size === itemSize && Order.orderNumber === orderNumber)
                 number++;
         });
             return number;
@@ -111,7 +111,10 @@ class Log extends Component {
             }
         }).map((data) => (
             logData.push(
-                { TimeStarted: this.formatTime(data.dateStarted), TimeFinished: (data.dateFinished == "0001-01-01T00:00:00+00:00") ? "-" : this.formatTime(data.dateFinished)  , OrderNumber: data.orderNumber, Size: this.SizeSwitch(data.size), OrderItem: data.name, Quantity: this.CountSame(data.name, data.size, data.orderNumber) }
+                {
+                    TimeStarted: this.formatTime(data.dateStarted), TimeFinished: (data.dateFinished ===
+                        "0001-01-01T00:00:00+00:00") ? "-" : this.formatTime(data.dateFinished), OrderNumber: data.orderNumber, Size: this.SizeSwitch(data.size), OrderItem: data.name, Quantity: this.CountSame(data.name, data.size, data.orderNumber)
+                }
             )
         ))
         console.log("LOGDATA");
@@ -176,7 +179,7 @@ class Log extends Component {
                         }).map((data) => (
                             <tr>
                                 <td>{this.formatTime(data.dateStarted)}</td>
-                                <td>{(data.dateFinished == "0001-01-01T00:00:00+00:00") ? "-" : this.formatTime(data.dateFinished)}</td>
+                                <td>{(data.dateFinished === "0001-01-01T00:00:00+00:00") ? "-" : this.formatTime(data.dateFinished)}</td>
                                 <td>{data.orderNumber}</td>
                                 <td>{this.SizeSwitch(data.size)}</td>
                                 <td>{data.name}</td>

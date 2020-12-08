@@ -1,11 +1,10 @@
 ﻿import React, { Component } from 'react';
 import "./AddUser.css";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import CheckBox from './CheckBox';
-import Clock from 'react-digital-clock'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

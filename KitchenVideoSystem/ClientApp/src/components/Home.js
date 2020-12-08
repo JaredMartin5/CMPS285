@@ -38,11 +38,11 @@ export class Home extends Component {
             <div>
                 <div id="Clock">
                     <Clock />
-                    &nbsp;<p class="clockUser">&nbsp;{this.state.user.username}</p>
+                    &nbsp;<p className ="clockUser">&nbsp;{this.state.user.username}</p>
                 </div>
                 <div className="ButtonList">
-                    <img src={KvsIcon} height="120px" class="center" />
-                    {this.state.user.username == "admin" ?
+                    <img src={KvsIcon} height="120px" className="center" />
+                    {this.state.user.username === "admin" ?
                         <h1 className="HomeTitle">Welcome to KVS, {this.state.user.firstName}!</h1> : <h1 className="HomeTitle">Welcome to KVS, {this.state.user.firstName}  {this.state.user.lastName}!</h1>}
                     <table>
                         <tr>

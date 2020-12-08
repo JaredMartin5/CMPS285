@@ -10,8 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
 import AddUser from './AddUser';
 import EditUser from './EditUser';
-import { add } from 'lodash';
-
 
 //const customStyles = {
  //   content: {
@@ -99,7 +97,7 @@ export default class Admin extends Component {
     }
 
     handleOpenModalEdit(user) {
-        if (this.state.showEditModal == false) {
+        if (this.state.showEditModal === false) {
             this.setState({ showEditModal: true, certainUser: user });
         }
     }

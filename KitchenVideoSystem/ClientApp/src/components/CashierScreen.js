@@ -15,8 +15,6 @@ import mediumdrinkIcon from '../content/drink-medium.png';
 import largedrinkIcon from '../content/drink-large.png';
 import hotdogIcon from '../content/hotdog-solid.png'
 import Clock from 'react-digital-clock'
-import { uniq } from 'lodash';
-
 
 const checksquareIcon = <FontAwesomeIcon icon={faCheckSquare} />
 
@@ -60,7 +58,7 @@ export default class CashierScreen extends Component {
             }
         })
             .then((response) => {
-                if (response.data == "00000000-0000-0000-0000-000000000000") {
+                if (response.data === "00000000-0000-0000-0000-000000000000") {
                     this.setState({
                         OrderNumber: uuidv4()
                     })
